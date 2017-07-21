@@ -12,7 +12,12 @@ public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritab
     @Override
     public void reduce(Text key, Iterable<IntWritable> values, Context context
             ) throws IOException, InterruptedException {
-        values.forEach(value->result.set(result.get()+value.get()));
+//        values.forEach(value->result.set(result.get()+value.get()));
+        int sum = 0;
+        for(IntWritable value:values){
+            sum += value.get();
+        }
+        result.set(sum);
         context.write(key, result);
     }
 }

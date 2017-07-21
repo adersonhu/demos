@@ -1,7 +1,5 @@
 package com.aderson.hadoop.demos.main;
 
-import java.io.IOException;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -17,7 +15,7 @@ import com.aderson.hadoop.demos.reduce.WordCountReducer;
 public class WordCount {
     
     
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws Exception{
         Configuration conf = new Configuration();
         String[] otherArgs = new GenericOptionsParser(conf,args).getRemainingArgs();
         
@@ -40,9 +38,6 @@ public class WordCount {
         
         FileOutputFormat.setOutputPath(job, new Path(otherArgs[otherArgs.length-1]));
         
-        
-        
-        
-        
+        System.exit(job.waitForCompletion(true)?0:1);
     }
 }
