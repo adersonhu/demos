@@ -1,4 +1,4 @@
-package com.aderson.hadoop.demos.main;
+package com.aderson.hadoop.demos.example;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
